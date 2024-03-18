@@ -38,7 +38,7 @@ class EntryPickerField<T> extends StatefulWidget {
   final PickerFieldItemToString<T> itemToString;
   final PickerFieldItemBuilder<T> itemBuilder;
   final PickerFieldFetchData<T> fetchData;
-  final PickerFieldInputDecoration? decorationBuilder;
+  final PickerFieldInputDecoration<T>? decorationBuilder;
 
   @override
   State<EntryPickerField<T>> createState() => _EntryPickerFieldState<T>();
@@ -59,6 +59,7 @@ class _EntryPickerFieldState<T> extends State<EntryPickerField<T>> {
   @override
   void initState() {
     super.initState();
+    controller.text = widget.itemToString(widget.selectedEntry);
   }
 
   @override
@@ -245,7 +246,6 @@ class EntryPickerOverlayWidget<T> extends StatelessWidget {
             return ListView.builder(
               itemCount: data.length,
               shrinkWrap: true,
-              itemExtent: 48,
               physics: const AlwaysScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 return Material(
