@@ -1,6 +1,6 @@
 name: key_overlays
 description: "An extraordinary Package to handle overlays in flutter"
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/boginni/boginni_utils
 
 environment:
